@@ -63,6 +63,7 @@ RUN apt-get update \
     wget \
     zip \
     vim \
+    libjpeg62-dev \
   && rm -rf /var/lib/apt/lists/*
 
 # Create links for c++,g++,cc,gcc
