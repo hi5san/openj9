@@ -18,10 +18,19 @@
 #
 # SPDX-License-Identifier: EPL-2.0 OR Apache-2.0 OR GPL-2.0 WITH Classpath-exception-2.0 OR LicenseRef-GPL-2.0 WITH Assembly-exception
 
+# To use this docker file:
+#   docker build -t=openj9armhf
+#   docker run -it openj9armhf
+
 FROM ubuntu:16.04
 
 # Install required OS tools
 RUN apt-get update \
+  && apt-get install -qq -y --no-install-recommends \
+    software-properties-common \
+    python-software-properties \
+  && add-apt-repository ppa:ubuntu-toolchain-r/test \
+  && apt-get update \
   && apt-get install -qq -y --no-install-recommends \
     autoconf \
     ca-certificates \
@@ -29,8 +38,8 @@ RUN apt-get update \
     cmake \
     cpio \
     file \
-    g++-4.8 \
-    gcc-4.8 \
+    g++-7 \
+    gcc-7 \
     git \
     git-core \
     libasound2-dev \
@@ -58,9 +67,9 @@ RUN apt-get update \
 
 # Create links for c++,g++,cc,gcc
 RUN ln -s g++ /usr/bin/c++ \
-  && ln -s g++-4.8 /usr/bin/g++ \
+  && ln -s g++-7 /usr/bin/g++ \
   && ln -s gcc /usr/bin/cc \
-  && ln -s gcc-4.8 /usr/bin/gcc
+  && ln -s gcc-7 /usr/bin/gcc
 
 # Download and setup freemarker.jar to /root/freemarker.jar
 RUN cd /root \
@@ -70,10 +79,10 @@ RUN cd /root \
 
 # Download and install boot JDK from AdoptOpenJDK
 RUN cd /root \
-  && wget -O bootjdk9.tar.gz https://api.adoptopenjdk.net/openjdk9-openj9/releases/x64_linux/latest/binary \
-  && tar -xzf bootjdk9.tar.gz \
-  && rm -f bootjdk9.tar.gz \
-  && ls | grep -i jdk | xargs -I % sh -c 'mv % bootjdk9'
+  && wget -O bootjdk11.tar.gz "https://api.adoptopenjdk.net/v2/binary/releases/openjdk11?openjdk_impl=openj9&os=linux&arch=x64&release=latest&heap_size=normal" \
+  && tar -xzf bootjdk11.tar.gz \
+  && rm -f bootjdk11.tar.gz \
+  && mv $(ls | grep -i jdk) bootjdk11
 
 # get the toolchain
 RUN cd /root \
@@ -136,9 +145,9 @@ RUN cd /root/debs \
 # Env vars set here will be visibile in the running container, so can be
 # used to convey configuration information to the build scripts.
 
-# Set environment variable JAVA_HOME, and prepend ${JAVA_HOME}/bin to PATH
-ENV JAVA_HOME="/root/bootjdk9"
-ENV PATH="${JAVA_HOME}/bin:${PATH}"
+# Set environment variable JAVA_HOME, and prepend $JAVA_HOME/bin to PATH
+ENV JAVA_HOME=/root/bootjdk11
+ENV PATH="$JAVA_HOME/bin:$PATH"
 
 # Directory containing the cross compilation tool chain
 ENV OPENJ9_CC_DIR="/root/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabihf"
