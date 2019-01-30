@@ -63,7 +63,6 @@ RUN apt-get update \
     vim-tiny \
     wget \
     zip \
-    libjpeg62-dev \
   && rm -rf /var/lib/apt/lists/*
 
 # Create links for c++,g++,cc,gcc
@@ -128,6 +127,7 @@ ADD \
     http://ftp.us.debian.org/debian/pool/main/x/x11proto-render/x11proto-render-dev_0.11.1-2_all.deb \
     http://ftp.us.debian.org/debian/pool/main/x/x11proto-xext/x11proto-xext-dev_7.3.0-1_all.deb      \
     http://ftp.us.debian.org/debian/pool/main/z/zlib/zlib1g_1.2.8.dfsg-5_arm64.deb                   \
+    http://ftp.us.debian.org/debian/pool/main/libj/libjpeg6b/libjpeg62-dev_6b2-3_arm64.deb           \
     /root/debs/
 
 # unpack debs into toolchain libc dir
