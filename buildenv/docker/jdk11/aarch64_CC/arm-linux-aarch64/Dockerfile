@@ -128,7 +128,11 @@ ADD \
     http://ftp.us.debian.org/debian/pool/main/x/x11proto-xext/x11proto-xext-dev_7.3.0-1_all.deb      \
     http://ftp.us.debian.org/debian/pool/main/z/zlib/zlib1g_1.2.8.dfsg-5_arm64.deb                   \
     http://ftp.us.debian.org/debian/pool/main/libj/libjpeg6b/libjpeg62-dev_6b2-3_arm64.deb           \
-    http://ftp.us.debian.org/debian/pool/main/libx/libxcb/libxcb-composite0_1.12-1_arm64.deb         \
+    http://ftp.us.debian.org/debian/pool/main/libx/libxcb/libxcb1_1.12-1_arm64.deb                   \
+    http://ftp.us.debian.org/debian/pool/main/libx/libxau/libxau6_1.0.8-1_arm64.deb                  \
+    http://ftp.us.debian.org/debian/pool/main/g/glibc/multiarch-support_2.24-11+deb9u3_arm64.deb     \
+    http://ftp.us.debian.org/debian/pool/main/libx/libxdmcp/libxdmcp6_1.1.2-3_arm64.deb              \
+    http://ftp.us.debian.org/debian/pool/main/libb/libbsd/libbsd0_0.8.3-1_arm64.deb                  \
     /root/debs/
 
 # unpack debs into toolchain libc dir
