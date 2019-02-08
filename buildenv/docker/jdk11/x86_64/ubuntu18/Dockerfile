@@ -48,6 +48,7 @@ RUN apt-get update \
     libxrender-dev \
     libxt-dev \
     libxtst-dev \
+    libxi-dev \
     make \
     nasm \
     pkg-config \
