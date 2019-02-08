@@ -115,6 +115,9 @@ ADD \
     http://ftp.us.debian.org/debian/pool/main/libx/libxext/libxext-dev_1.3.3-1+b2_armhf.deb          \
     http://ftp.us.debian.org/debian/pool/main/libx/libxi/libxi6_1.7.9-1_armhf.deb                    \
     http://ftp.us.debian.org/debian/pool/main/libx/libxi/libxi-dev_1.7.9-1_armhf.deb                 \
+    http://ftp.us.debian.org/debian/pool/main/libx/libxfixes/libxfixes-dev_5.0.3-1_arm64.deb         \
+    http://ftp.us.debian.org/debian/pool/main/x/x11proto-fixes/x11proto-fixes-dev_5.0-2_all.deb      \
+    http://ftp.us.debian.org/debian/pool/main/libx/libxfixes/libxfixes3_5.0.3-1_arm64.deb            \
     http://ftp.us.debian.org/debian/pool/main/libx/libxrender/libxrender1_0.9.10-1_armhf.deb         \
     http://ftp.us.debian.org/debian/pool/main/libx/libxrender/libxrender-dev_0.9.10-1_armhf.deb      \
     http://ftp.us.debian.org/debian/pool/main/libx/libxt/libxt-dev_1.1.5-1_armhf.deb                 \
